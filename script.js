@@ -19,10 +19,12 @@ let appData = {
   savings: false
 };
 
+
+
 function chooseExpenses() {
 
   for (let i = 0; i < 2; i++) {
-    let a = +prompt("Ведите обязательно статью расходов в этом месяце", ''),
+    let a = prompt("Ведите обязательно статью расходов в этом месяце", ''),
       b = prompt("Во сколько обойдется?", '');
 
     if ((typeof (a)) === 'string' && (typeof (a)) != null && (typeof (b)) != null &&
@@ -36,18 +38,36 @@ function chooseExpenses() {
 }
 chooseExpenses();
 
+//----------------------1 пункт---------------------------------------------------------
+function detectDayBudget() {
+  appData.moneyPerDay = (appData.budget / 30).toFixed();
+  alert("расчет дневного бюджета :  " +  appData.moneyPerDay);
+}
+detectDayBudget();
+//----------------------2 пункт ----------------------------------------------------------
+function detectLevel() {
+  alert("Ежедневный бюджет: " + appData.moneyPerDay);
 
+  if (appData.moneyPerDay < 100) {
+    console.log("Минимальный уровень достатка");
+  } else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
+    console.log("Средний уровень доставка");
+  } else if (appData.moneyPerDay > 2000) {
+    console.log("Высокий уровень достатка");
+  } else {
+    console.log("Произошла ошибка");
+  }
+}
+detectLevel();
+///------------------------ 3 пункт   ------------------------------------------------------
+let one = prompt('Статья необязательных расходов?', '1 вопрос');
+let two = prompt('Статья необязательных расходов?', '2 вопрос');
+let three = prompt('Статья необязательных расходов?', '3 вопрос'); 
+{
+  appData.optionalExpenses[1] = one;
+  appData.optionalExpenses[2] = two;
+  appData.optionalExpenses[3] = three;
+}
 
-appData.moneyPerDay = (appData.budget / 30).toFixed();
+console.log(appData.optionalExpenses);
 
-alert("Ежедневный бюджет: " + appData.moneyPerDay);
-
-if (appData.moneyPerDay < 100) {
-  console.log("Минимальный уровень достатка");
-} else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
-  console.log("Средний уровень доставка");
-} else if (appData.moneyPerDay > 2000) {
-  console.log("Высокий уровень достатка");
-} else {
-  console.log("Произошла ошибка");
-};
