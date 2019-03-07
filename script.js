@@ -72,14 +72,17 @@ checkSavings();
 
 
 ///------------------------ 3 пункт   ------------------------------------------------------
-let one = prompt('Статья необязательных расходов?', '1 вопрос');
-let two = prompt('Статья необязательных расходов?', '2 вопрос');
-let three = prompt('Статья необязательных расходов?', '3 вопрос'); 
-{
-  appData.optionalExpenses[1] = one;
-  appData.optionalExpenses[2] = two;
-  appData.optionalExpenses[3] = three;
-}
+function chooseOptExpenses() {
 
-console.log(appData.optionalExpenses);
-
+  let one = prompt('Статья необязательных расходов?', '1 вопрос');
+  let two = prompt('Статья необязательных расходов?', '2 вопрос');
+  let three = prompt('Статья необязательных расходов?', '3 вопрос'); {
+    appData.optionalExpenses[1] = one;
+    appData.optionalExpenses[2] = two;
+    appData.optionalExpenses[3] = three;
+  }
+  
+  console.log(appData.optionalExpenses);
+  
+  }
+  chooseOptExpenses();
