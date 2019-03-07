@@ -16,7 +16,7 @@ let appData = {
   optionalExpenses: {},
   income: [],
   timeData: time,
-  savings: false
+  savings: true
 };
 
 
@@ -58,6 +58,19 @@ function detectLevel() {
   }
 }
 detectLevel();
+
+function checkSavings() {
+  if (appData.savings == true) {
+    let save = +prompt('Какова сумма накоплений?', ''),
+        percent = +prompt("Под какой процент?" , '');
+      
+        appData.monthIncome = save/100/12*percent;
+        alert('Доход в месяц с вашего депозита: ' + appData.monthIncome);
+  }
+}
+checkSavings();
+
+
 ///------------------------ 3 пункт   ------------------------------------------------------
 let one = prompt('Статья необязательных расходов?', '1 вопрос');
 let two = prompt('Статья необязательных расходов?', '2 вопрос');
